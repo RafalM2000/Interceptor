@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { HttpService } from './http.service';
 
 import { AppComponent } from './app.component';
-import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { TokenInterceptor } from './token.interceptor';
+
+
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { TokenInterceptor } from './token.interceptor';
     MatButtonModule,
     BrowserAnimationsModule
   ],
-  providers: [ HttpService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }],
+  providers: [ HttpService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true} ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -10,8 +10,8 @@ export class HttpService {
   constructor(private http: HttpClient) { }
 
   getData() {
-    const gitHubUser = 'RafalM2000';
-    return this.http.get<any>(`https://api.github.com/users/${gitHubUser}`);
+    const url = 'https://jsonplaceholder.typicode.com/todos/1';
+    return this.http.get<any>(url);
   }
 }
 
